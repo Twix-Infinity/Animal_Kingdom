@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Activity, ArrowLeft } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
-interface AuthPageProps {
-  onBack?: () => void;
-}
-
-export default function AuthPage({ onBack }: AuthPageProps) {
+export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,16 +31,6 @@ export default function AuthPage({ onBack }: AuthPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
-        {onBack && (
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-slate-600 hover:text-slate-900 mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back</span>
-          </button>
-        )}
-
         <div className="flex items-center justify-center mb-8">
           <div className="p-3 bg-emerald-600 rounded-xl">
             <Activity className="w-8 h-8 text-white" />
