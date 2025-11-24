@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Stethoscope, LogOut } from 'lucide-react';
+import { Stethoscope } from 'lucide-react';
 import { supabase, type Animal, type HealthAlert } from './lib/supabase';
-import { useAuth } from './contexts/AuthContext';
 import DashboardStats from './components/DashboardStats';
 import AnimalCard from './components/AnimalCard';
 import VideoAnalyzer from './components/VideoAnalyzer';
 import HealthAlerts from './components/HealthAlerts';
 import AddAnimalForm from './components/AddAnimalForm';
-import AuthPage from './components/AuthPage';
 
 function App() {
-  const { user, loading: authLoading, signOut } = useAuth();
   const [animals, setAnimals] = useState<Animal[]>([]);
   const [alerts, setAlerts] = useState<(HealthAlert & { animal?: Animal })[]>([]);
   const [loading, setLoading] = useState(true);
@@ -96,19 +93,15 @@ function App() {
     monitoringAnimals: animals.filter(a => a.health_status === 'monitoring').length,
   };
 
-  if (authLoading || loading) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-slate-600">Loading...</p>
+          <p className="text-slate-600">Loading farm data...</p>
         </div>
       </div>
     );
-  }
-
-  if (!user) {
-    return <AuthPage />;
   }
 
   return (
@@ -125,17 +118,7 @@ function App() {
                 <p className="text-sm text-slate-600">AI-Powered Animal Health Detection</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-slate-600">{user.email}</span>
-              <AddAnimalForm onAnimalAdded={loadData} />
-              <button
-                onClick={signOut}
-                className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
-                title="Sign out"
-              >
-                <LogOut className="w-5 h-5" />
-              </button>
-            </div>
+            <AddAnimalForm onAnimalAdded={loadData} />
           </div>
         </div>
       </header>
