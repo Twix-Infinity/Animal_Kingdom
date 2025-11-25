@@ -6,9 +6,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 try:
-    supabase_url = st.secrets.get("VITE_SUPABASE_URL") or os.getenv('VITE_SUPABASE_URL')
-    supabase_key = st.secrets.get("VITE_SUPABASE_ANON_KEY") or os.getenv('VITE_SUPABASE_ANON_KEY')
-except:
+    supabase_url = st.secrets["VITE_SUPABASE_URL"]
+    supabase_key = st.secrets["VITE_SUPABASE_ANON_KEY"]
+except (KeyError, FileNotFoundError):
     supabase_url = os.getenv('VITE_SUPABASE_URL')
     supabase_key = os.getenv('VITE_SUPABASE_ANON_KEY')
 

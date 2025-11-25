@@ -14,14 +14,21 @@ st.set_page_config(
 )
 
 try:
-    supabase_url = st.secrets.get("VITE_SUPABASE_URL") or os.getenv('VITE_SUPABASE_URL')
-    supabase_key = st.secrets.get("VITE_SUPABASE_ANON_KEY") or os.getenv('VITE_SUPABASE_ANON_KEY')
-except:
+    supabase_url = st.secrets["VITE_SUPABASE_URL"]
+    supabase_key = st.secrets["VITE_SUPABASE_ANON_KEY"]
+except (KeyError, FileNotFoundError):
     supabase_url = os.getenv('VITE_SUPABASE_URL')
     supabase_key = os.getenv('VITE_SUPABASE_ANON_KEY')
 
 if not supabase_url or not supabase_key:
-    st.error("⚠️ Supabase credentials not found. Please configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Streamlit secrets.")
+    st.error("⚠️ Supabase credentials not found. Please configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Streamlit secrets or .env file.")
+    st.info("""
+    **For Streamlit Cloud:** Add these secrets in your app settings:
+    - VITE_SUPABASE_URL
+    - VITE_SUPABASE_ANON_KEY
+
+    **For local development:** Ensure .env file exists with these variables.
+    """)
     st.stop()
 
 supabase = create_client(supabase_url, supabase_key)
