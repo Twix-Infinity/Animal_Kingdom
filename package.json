@@ -2,9 +2,10 @@
   "name": "animal-kingdom",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "python app.py",
-    "build": "echo 'Python Flask app - no build needed'",
+    "build": "echo 'Python Flask app - build step skipped' && exit 0",
     "start": "python app.py"
   }
 }
