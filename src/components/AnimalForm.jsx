@@ -2,8 +2,16 @@ import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { X } from 'lucide-react'
 
-export default function AnimalForm({ onSuccess, onCancel }) {
-  const [formData, setFormData] = useState({
+export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
+  const isEditing = !!animal
+  const [formData, setFormData] = useState(animal ? {
+    name: animal.name,
+    species: animal.species,
+    age: animal.age.toString(),
+    health_status: animal.health_status,
+    location: animal.location || '',
+    last_checkup: animal.last_checkup ? new Date(animal.last_checkup).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
+  } : {
     name: '',
     species: '',
     age: '',
@@ -20,10 +28,14 @@ export default function AnimalForm({ onSuccess, onCancel }) {
     setError(null)
 
     try {
-      const { error } = await supabase.from('animals').insert([{
+      const data = {
         ...formData,
         age: parseInt(formData.age)
-      }])
+      }
+
+      const { error } = isEditing
+        ? await supabase.from('animals').update(data).eq('id', animal.id)
+        : await supabase.from('animals').insert([data])
 
       if (error) throw error
       onSuccess()
@@ -123,7 +135,7 @@ export default function AnimalForm({ onSuccess, onCancel }) {
           disabled={loading}
           className="flex-1 bg-emerald-600 text-white py-2 rounded-lg font-medium hover:bg-emerald-700 disabled:opacity-50 transition-colors"
         >
-          {loading ? 'Adding...' : 'Add Animal'}
+          {loading ? (isEditing ? 'Updating...' : 'Adding...') : (isEditing ? 'Update Animal' : 'Add Animal')}
         </button>
         <button
           type="button"
