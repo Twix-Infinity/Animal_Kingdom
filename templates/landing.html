@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% block title %}Farm Health Monitoring - AI-Powered Livestock Management{% endblock %}
+
+{% block content %}
+<div class="landing">
+    <nav class="landing-nav">
+        <div class="nav-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 17s5-5 10-5 10 5 10 5"></path>
+                <path d="M4.8 3.1 8 6.3"></path>
+                <path d="M12 3v3"></path>
+                <path d="M15.2 3.1 12 6.3"></path>
+            </svg>
+            <span>Farm Health Monitor</span>
+        </div>
+        <a href="/auth" class="btn btn-primary">Get Started</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Monitor Your Livestock Health with AI-Powered Insights</h1>
+            <p class="hero-subtitle">Keep your animals healthy and productive with real-time health monitoring, intelligent alerts, and comprehensive analytics.</p>
+            <div class="hero-actions">
+                <a href="/auth" class="btn btn-primary btn-lg">Start Free Trial</a>
+                <a href="#features" class="btn btn-secondary btn-lg">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-card">
+                <div class="card-header">
+                    <span class="status-dot"></span>
+                    <span>Live Monitoring</span>
+                </div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <div class="stat-value">248</div>
+                        <div class="stat-label">Animals</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">94%</div>
+                        <div class="stat-label">Healthy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Alerts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Manage Farm Health</h2>
+            <p class="section-subtitle">Powerful tools designed for modern livestock management</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Real-Time Health Monitoring</h3>
+                    <p>Track the health status of every animal in your herd with up-to-date information and instant notifications.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>Intelligent Alerts</h3>
+                    <p>Get notified immediately when an animal shows signs of illness or requires attention, preventing issues before they escalate.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="20" x2="12" y2="10"></line>
+                            <line x1="18" y1="20" x2="18" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>Comprehensive Analytics</h3>
+                    <p>Make data-driven decisions with detailed insights into herd health, trends, and performance metrics.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3>Medical History Tracking</h3>
+                    <p>Keep complete records of checkups, treatments, and vaccinations for every animal in one secure place.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3>Location Management</h3>
+                    <p>Organize animals by location and pasture, making it easy to manage large operations across multiple sites.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2Z"></path>
+                            <path d="M12 12 20.5 3.5"></path>
+                        </svg>
+                    </div>
+                    <h3>Smart Reporting</h3>
+                    <p>Generate detailed reports on herd health, growth rates, and veterinary interventions to optimize farm operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <h2>Why Farmers Trust Our Platform</h2>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <div>
+                            <h4>Reduce Veterinary Costs</h4>
+                            <p>Early detection means fewer emergency visits and lower treatment costs</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <div>
+                            <h4>Improve Animal Welfare</h4>
+                            <p>Keep your livestock healthy and happy with proactive care</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <div>
+                            <h4>Save Time Daily</h4>
+                            <p>Streamline record-keeping and monitoring with automated tracking</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <div>
+                            <h4>Increase Productivity</h4>
+                            <p>Healthier animals mean better yields and higher profitability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Farm Management?</h2>
+            <p>Join thousands of farmers who are already using our platform to keep their livestock healthy.</p>
+            <a href="/auth" class="btn btn-primary btn-lg">Get Started Today</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 17s5-5 10-5 10 5 10 5"></path>
+                        <path d="M4.8 3.1 8 6.3"></path>
+                        <path d="M12 3v3"></path>
+                        <path d="M15.2 3.1 12 6.3"></path>
+                    </svg>
+                    <span>Farm Health Monitor</span>
+                </div>
+                <p>&copy; 2024 Farm Health Monitor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

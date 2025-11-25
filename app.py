@@ -33,7 +33,7 @@ def login_required(f):
 def index():
     if 'user' in session:
         return redirect(url_for('dashboard'))
-    return redirect(url_for('auth_page'))
+    return render_template('landing.html')
 
 @app.route('/auth')
 def auth_page():
