@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
-import { TreePine, Mail, Lock, AlertCircle } from 'lucide-react'
+import { Stethoscope, Mail, Lock, AlertCircle } from 'lucide-react'
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true)
@@ -41,7 +41,7 @@ export default function Auth() {
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="flex flex-col items-center mb-8">
             <div className="bg-emerald-100 p-4 rounded-full mb-4">
-              <TreePine className="w-12 h-12 text-emerald-600" />
+              <Stethoscope className="w-12 h-12 text-emerald-600" />
             </div>
             <h1 className="text-3xl font-bold text-slate-800 mb-2">Animal Kingdom</h1>
             <p className="text-slate-600">Farm Health Monitoring System</p>

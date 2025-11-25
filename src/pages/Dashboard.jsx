@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
-import { TreePine, LogOut, Plus } from 'lucide-react'
+import { Stethoscope, LogOut, Plus } from 'lucide-react'
 import AnimalList from '../components/AnimalList'
 import AnimalForm from '../components/AnimalForm'
 import HealthAlerts from '../components/HealthAlerts'
@@ -151,7 +151,7 @@ export default function Dashboard({ session }) {
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center gap-3">
                 <div className="bg-emerald-100 p-2 rounded-lg">
-                  <TreePine className="w-6 h-6 text-emerald-600" />
+                  <Stethoscope className="w-6 h-6 text-emerald-600" />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-slate-800">Animal Kingdom</h1>
