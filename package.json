@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "python app.py",
-    "build": "echo 'Python Flask app - build step skipped' && exit 0",
+    "build": "vite build",
     "start": "python app.py"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
   }
 }
