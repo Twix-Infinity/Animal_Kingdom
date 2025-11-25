@@ -21,7 +21,7 @@ export default function Dashboard({ session }) {
     try {
       const [animalsRes, alertsRes] = await Promise.all([
         supabase.from('animals').select('*').order('created_at', { ascending: false }),
-        supabase.from('health_alerts').select('*, animals(name, species)').eq('status', 'active').order('created_at', { ascending: false })
+        supabase.from('health_alerts').select('*, animals(name, type)').eq('resolved', false).order('created_at', { ascending: false })
       ])
 
       if (animalsRes.data) {
@@ -39,7 +39,7 @@ export default function Dashboard({ session }) {
   const calculateStats = (animalsData) => {
     const total = animalsData.length
     const healthy = animalsData.filter(a => a.health_status === 'healthy').length
-    const avgAge = total > 0 ? animalsData.reduce((sum, a) => sum + a.age, 0) / total : 0
+    const avgAge = total > 0 ? animalsData.reduce((sum, a) => sum + (a.age_months || 0), 0) / total : 0
 
     setStats({
       totalAnimals: total,

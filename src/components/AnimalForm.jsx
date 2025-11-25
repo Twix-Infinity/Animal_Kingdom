@@ -6,18 +6,20 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
   const isEditing = !!animal
   const [formData, setFormData] = useState(animal ? {
     name: animal.name,
-    species: animal.species,
-    age: animal.age.toString(),
+    type: animal.type,
+    age_months: animal.age_months.toString(),
+    weight_kg: animal.weight_kg?.toString() || '0',
     health_status: animal.health_status,
-    location: animal.location || '',
-    last_checkup: animal.last_checkup ? new Date(animal.last_checkup).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
+    pen_location: animal.pen_location || '',
+    last_checked: animal.last_checked ? new Date(animal.last_checked).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
   } : {
     name: '',
-    species: '',
-    age: '',
+    type: 'cow',
+    age_months: '',
+    weight_kg: '0',
     health_status: 'healthy',
-    location: '',
-    last_checkup: new Date().toISOString().split('T')[0]
+    pen_location: '',
+    last_checked: new Date().toISOString().split('T')[0]
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -30,7 +32,8 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
     try {
       const data = {
         ...formData,
-        age: parseInt(formData.age)
+        age_months: parseInt(formData.age_months),
+        weight_kg: parseFloat(formData.weight_kg)
       }
 
       const { error } = isEditing
@@ -65,25 +68,40 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Species</label>
-          <input
-            type="text"
-            name="species"
-            value={formData.species}
+          <label className="block text-sm font-medium text-slate-700 mb-1">Type</label>
+          <select
+            name="type"
+            value={formData.type}
             onChange={handleChange}
             required
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+          >
+            <option value="cow">Cow</option>
+            <option value="pig">Pig</option>
+            <option value="chicken">Chicken</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-1">Age (months)</label>
+          <input
+            type="number"
+            name="age_months"
+            value={formData.age_months}
+            onChange={handleChange}
+            required
+            min="0"
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Age (years)</label>
+          <label className="block text-sm font-medium text-slate-700 mb-1">Weight (kg)</label>
           <input
             type="number"
-            name="age"
-            value={formData.age}
+            name="weight_kg"
+            value={formData.weight_kg}
             onChange={handleChange}
-            required
             min="0"
+            step="0.1"
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
           />
         </div>
@@ -96,27 +114,28 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
           >
             <option value="healthy">Healthy</option>
+            <option value="monitoring">Monitoring</option>
             <option value="sick">Sick</option>
-            <option value="recovering">Recovering</option>
             <option value="critical">Critical</option>
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Location</label>
+          <label className="block text-sm font-medium text-slate-700 mb-1">Pen Location</label>
           <input
             type="text"
-            name="location"
-            value={formData.location}
+            name="pen_location"
+            value={formData.pen_location}
             onChange={handleChange}
+            required
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Last Checkup</label>
+          <label className="block text-sm font-medium text-slate-700 mb-1">Last Checked</label>
           <input
             type="date"
-            name="last_checkup"
-            value={formData.last_checkup}
+            name="last_checked"
+            value={formData.last_checked}
             onChange={handleChange}
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
           />

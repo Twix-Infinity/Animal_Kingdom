@@ -26,8 +26,8 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
   const getHealthStatusColor = (status) => {
     const colors = {
       healthy: 'bg-emerald-100 text-emerald-700',
-      sick: 'bg-red-100 text-red-700',
-      recovering: 'bg-amber-100 text-amber-700',
+      monitoring: 'bg-blue-100 text-blue-700',
+      sick: 'bg-amber-100 text-amber-700',
       critical: 'bg-rose-100 text-rose-700'
     }
     return colors[status] || colors.healthy
@@ -63,24 +63,25 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
                   <div className="flex items-start gap-3 mb-2">
                     <div>
                       <h3 className="text-lg font-semibold text-slate-800">{animal.name}</h3>
-                      <p className="text-sm text-slate-600">{animal.species}</p>
+                      <p className="text-sm text-slate-600">{animal.type}</p>
                     </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${getHealthStatusColor(animal.health_status)}`}>
                       {animal.health_status}
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-                    <span>Age: {animal.age} years</span>
-                    {animal.location && (
+                    <span>Age: {animal.age_months} months</span>
+                    <span>Weight: {animal.weight_kg} kg</span>
+                    {animal.pen_location && (
                       <span className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
-                        {animal.location}
+                        {animal.pen_location}
                       </span>
                     )}
-                    {animal.last_checkup && (
+                    {animal.last_checked && (
                       <span className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        Last checkup: {new Date(animal.last_checkup).toLocaleDateString()}
+                        Last checked: {new Date(animal.last_checked).toLocaleDateString()}
                       </span>
                     )}
                   </div>

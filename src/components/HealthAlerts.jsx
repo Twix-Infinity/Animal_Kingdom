@@ -10,7 +10,7 @@ export default function HealthAlerts({ alerts, onAlertResolved }) {
     try {
       const { error } = await supabase
         .from('health_alerts')
-        .update({ status: 'resolved', resolved_at: new Date().toISOString() })
+        .update({ resolved: true, resolved_at: new Date().toISOString() })
         .eq('id', alertId)
 
       if (error) throw error
@@ -67,7 +67,7 @@ export default function HealthAlerts({ alerts, onAlertResolved }) {
                 <h4 className="font-semibold text-slate-800 text-sm mb-1">{alert.alert_type}</h4>
                 {alert.animals && (
                   <p className="text-xs text-slate-600 mb-1">
-                    {alert.animals.name} ({alert.animals.species})
+                    {alert.animals.name} ({alert.animals.type})
                   </p>
                 )}
                 <p className="text-sm text-slate-600">{alert.description}</p>
