@@ -1,0 +1,8 @@
+{
+  "name": "animal-kingdom-streamlit",
+  "version": "1.0.0",
+  "description": "Streamlit-based Farm Health Monitoring System",
+  "scripts": {
+    "build": "echo 'This is a Python Streamlit application. Use: streamlit run app.py' && exit 0"
+  }
+}

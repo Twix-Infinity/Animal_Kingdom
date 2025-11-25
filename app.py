@@ -13,8 +13,17 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-supabase_url = os.getenv('VITE_SUPABASE_URL')
-supabase_key = os.getenv('VITE_SUPABASE_ANON_KEY')
+try:
+    supabase_url = st.secrets.get("VITE_SUPABASE_URL") or os.getenv('VITE_SUPABASE_URL')
+    supabase_key = st.secrets.get("VITE_SUPABASE_ANON_KEY") or os.getenv('VITE_SUPABASE_ANON_KEY')
+except:
+    supabase_url = os.getenv('VITE_SUPABASE_URL')
+    supabase_key = os.getenv('VITE_SUPABASE_ANON_KEY')
+
+if not supabase_url or not supabase_key:
+    st.error("⚠️ Supabase credentials not found. Please configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Streamlit secrets.")
+    st.stop()
+
 supabase = create_client(supabase_url, supabase_key)
 
 if 'user' not in st.session_state:
