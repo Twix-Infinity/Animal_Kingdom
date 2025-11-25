@@ -33,7 +33,7 @@ def login_required(f):
 def index():
     if 'user' in session:
         return redirect(url_for('dashboard'))
-    return render_template('landing.html')
+    return redirect(url_for('auth_page'))
 
 @app.route('/auth')
 def auth_page():
@@ -210,5 +210,4 @@ def get_stats():
         return jsonify({'success': False, 'error': str(e)}), 400
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=5000)

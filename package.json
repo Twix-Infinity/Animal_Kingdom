@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "build": "echo 'Python Flask application - no build step' && exit 0"
+    "dev": "python app.py",
+    "build": "echo 'Python Flask app - no build needed'",
+    "start": "python app.py"
   }
 }
