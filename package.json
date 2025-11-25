@@ -2,13 +2,9 @@
   "name": "animal-kingdom",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "python app.py",
-    "build": "vite build",
+    "build": "echo 'Python Flask application'",
     "start": "python app.py"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
   }
 }
