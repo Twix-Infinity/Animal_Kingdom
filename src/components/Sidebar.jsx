@@ -1,6 +1,6 @@
 import { Home, Heart, Video, BarChart3, AlertTriangle, Settings } from 'lucide-react'
 
-export default function Sidebar({ activeTab, onTabChange }) {
+export default function Sidebar({ activeTab, onTabChange, mobileMenuOpen, onCloseMobileMenu }) {
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home },
     { id: 'animals', label: 'Animals', icon: Heart },
@@ -10,8 +10,22 @@ export default function Sidebar({ activeTab, onTabChange }) {
   ]
 
   return (
-    <aside className="w-64 bg-white border-r border-slate-200 min-h-screen">
-      <nav className="p-4 space-y-1">
+    <>
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={onCloseMobileMenu}
+        />
+      )}
+      <aside
+        className={`
+          fixed lg:static inset-y-0 left-0 z-50
+          w-64 bg-white border-r border-slate-200 min-h-screen
+          transform transition-transform duration-300 ease-in-out
+          ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        `}
+      >
+        <nav className="p-4 space-y-1">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.id
@@ -34,7 +48,8 @@ export default function Sidebar({ activeTab, onTabChange }) {
             </button>
           )
         })}
-      </nav>
-    </aside>
+        </nav>
+      </aside>
+    </>
   )
 }

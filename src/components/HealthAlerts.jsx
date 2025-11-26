@@ -35,8 +35,8 @@ export default function HealthAlerts({ alerts, onAlertResolved }) {
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-      <div className="p-6 border-b border-slate-200">
-        <h2 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
+      <div className="p-4 sm:p-6 border-b border-slate-200">
+        <h2 className="text-base sm:text-lg font-semibold text-slate-800 flex items-center gap-2">
           <AlertTriangle className="w-5 h-5 text-amber-600" />
           Health Alerts
         </h2>

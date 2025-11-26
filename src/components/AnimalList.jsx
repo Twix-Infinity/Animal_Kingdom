@@ -75,8 +75,8 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
               </button>
             </div>
           ) : (
-            <div className="p-6 hover:bg-slate-50 transition-colors">
-              <div className="flex items-start justify-between">
+            <div className="p-4 sm:p-6 hover:bg-slate-50 transition-colors">
+              <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-start gap-3 mb-2">
                     <div>
@@ -87,7 +87,7 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
                       {animal.health_status}
                     </span>
                   </div>
-                  <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+                  <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-slate-600">
                     <span>Age: {animal.age_months} months</span>
                     <span>Weight: {animal.weight_kg} kg</span>
                     {animal.pen_location && (
@@ -104,7 +104,7 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
                     )}
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 self-end sm:self-start">
                   <button
                     onClick={() => setAnalyzingAnimal(animal)}
                     className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"

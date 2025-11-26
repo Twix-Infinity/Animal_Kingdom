@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
-import { Stethoscope, LogOut, Plus } from 'lucide-react'
+import { Stethoscope, LogOut, Plus, Menu, X } from 'lucide-react'
 import AnimalList from '../components/AnimalList'
 import AnimalForm from '../components/AnimalForm'
 import HealthAlerts from '../components/HealthAlerts'
@@ -17,6 +17,7 @@ export default function Dashboard({ session }) {
   const [alerts, setAlerts] = useState([])
   const [stats, setStats] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     loadData()
@@ -84,17 +85,18 @@ export default function Dashboard({ session }) {
       case 'animals':
         return (
           <div>
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold text-slate-800">Animals</h2>
-                <p className="text-slate-600 mt-1">Manage your farm animals</p>
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-800">Animals</h2>
+                <p className="text-sm sm:text-base text-slate-600 mt-1">Manage your farm animals</p>
               </div>
               <button
                 onClick={() => setShowAddAnimal(!showAddAnimal)}
-                className="flex items-center gap-2 px-4 py-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800 transition-colors whitespace-nowrap"
               >
                 <Plus className="w-4 h-4" />
-                <span>Add Animal</span>
+                <span className="hidden sm:inline">Add Animal</span>
+                <span className="sm:hidden">Add</span>
               </button>
             </div>
 
@@ -119,15 +121,15 @@ export default function Dashboard({ session }) {
         return (
           <div>
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-slate-800">Dashboard Overview</h2>
-              <p className="text-slate-600 mt-1">Monitor your farm's health at a glance</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-800">Dashboard Overview</h2>
+              <p className="text-sm sm:text-base text-slate-600 mt-1">Monitor your farm's health at a glance</p>
             </div>
             <Stats stats={stats} />
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
               <div className="lg:col-span-2">
                 <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                  <div className="p-6 border-b border-slate-200">
-                    <h2 className="text-lg font-semibold text-slate-800">Recent Animals</h2>
+                  <div className="p-4 sm:p-6 border-b border-slate-200">
+                    <h2 className="text-base sm:text-lg font-semibold text-slate-800">Recent Animals</h2>
                   </div>
                   <AnimalList animals={animals.slice(0, 5)} onAnimalDeleted={handleAnimalDeleted} />
                 </div>
@@ -143,36 +145,50 @@ export default function Dashboard({ session }) {
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
-      <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      <Sidebar
+        activeTab={activeTab}
+        onTabChange={(tab) => {
+          setActiveTab(tab)
+          setMobileMenuOpen(false)
+        }}
+        mobileMenuOpen={mobileMenuOpen}
+        onCloseMobileMenu={() => setMobileMenuOpen(false)}
+      />
 
       <div className="flex-1 flex flex-col">
         <nav className="bg-white shadow-sm border-b border-slate-200">
-          <div className="px-6 lg:px-8">
+          <div className="px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+                >
+                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
                 <div className="bg-amber-100 p-2 rounded-lg">
                   <Stethoscope className="w-6 h-6 text-amber-700" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-slate-800">Animal Kingdom</h1>
-                  <p className="text-xs text-slate-500">Farm Health Monitoring</p>
+                  <h1 className="text-lg sm:text-xl font-bold text-slate-800">Animal Kingdom</h1>
+                  <p className="text-xs text-slate-500 hidden sm:block">Farm Health Monitoring</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="text-sm text-slate-600">{session.user.email}</span>
+              <div className="flex items-center gap-2 sm:gap-4">
+                <span className="text-sm text-slate-600 hidden md:inline">{session.user.email}</span>
                 <button
                   onClick={handleSignOut}
-                  className="flex items-center gap-2 px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 sm:px-4 py-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
                 >
                   <LogOut className="w-4 h-4" />
-                  <span>Sign Out</span>
+                  <span className="hidden sm:inline">Sign Out</span>
                 </button>
               </div>
             </div>
           </div>
         </nav>
 
-        <main className="flex-1 px-6 lg:px-8 py-8 overflow-y-auto">
+        <main className="flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 overflow-y-auto">
           {renderContent()}
         </main>
       </div>

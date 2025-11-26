@@ -35,18 +35,18 @@ export default function Stats({ stats }) {
   ]
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
       {statCards.map((stat, index) => {
         const Icon = stat.icon
         return (
-          <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-sm font-medium text-slate-600 mb-1">{stat.label}</p>
-                <p className="text-3xl font-bold text-slate-800">{stat.value}</p>
+          <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-6 hover:shadow-md transition-shadow">
+            <div className="flex flex-col sm:flex-row items-start justify-between gap-3">
+              <div className="w-full">
+                <p className="text-xs sm:text-sm font-medium text-slate-600 mb-1">{stat.label}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-slate-800">{stat.value}</p>
               </div>
-              <div className={`p-3 rounded-lg ${stat.color}`}>
-                <Icon className="w-6 h-6" />
+              <div className={`p-2 sm:p-3 rounded-lg ${stat.color} self-start`}>
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             </div>
           </div>
