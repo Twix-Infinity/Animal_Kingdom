@@ -27,7 +27,7 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
 
   const getHealthStatusColor = (status) => {
     const colors = {
-      healthy: 'bg-amber-100 text-amber-800',
+      healthy: 'bg-emerald-100 text-emerald-700',
       monitoring: 'bg-blue-100 text-blue-700',
       sick: 'bg-amber-100 text-amber-700',
       critical: 'bg-rose-100 text-rose-700'
