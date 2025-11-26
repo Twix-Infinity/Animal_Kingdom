@@ -91,7 +91,7 @@ export default function Dashboard({ session }) {
               </div>
               <button
                 onClick={() => setShowAddAnimal(!showAddAnimal)}
-                className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800 transition-colors"
               >
                 <Plus className="w-4 h-4" />
                 <span>Add Animal</span>
@@ -150,8 +150,8 @@ export default function Dashboard({ session }) {
           <div className="px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center gap-3">
-                <div className="bg-emerald-100 p-2 rounded-lg">
-                  <Stethoscope className="w-6 h-6 text-emerald-600" />
+                <div className="bg-amber-100 p-2 rounded-lg">
+                  <Stethoscope className="w-6 h-6 text-amber-700" />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-slate-800">Animal Kingdom</h1>

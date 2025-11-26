@@ -45,7 +45,7 @@ export default function HealthAlerts({ alerts, onAlertResolved }) {
       <div className="divide-y divide-slate-200 max-h-96 overflow-y-auto">
         {alerts.length === 0 ? (
           <div className="p-8 text-center">
-            <CheckCircle className="w-12 h-12 text-emerald-500 mx-auto mb-2" />
+            <CheckCircle className="w-12 h-12 text-amber-600 mx-auto mb-2" />
             <p className="text-slate-500">No active alerts</p>
           </div>
         ) : (
@@ -59,7 +59,7 @@ export default function HealthAlerts({ alerts, onAlertResolved }) {
                   <button
                     onClick={() => handleResolve(alert.id)}
                     disabled={resolvingId === alert.id}
-                    className="text-xs text-emerald-600 hover:text-emerald-700 font-medium disabled:opacity-50"
+                    className="text-xs text-amber-700 hover:text-amber-800 font-medium disabled:opacity-50"
                   >
                     {resolvingId === alert.id ? 'Resolving...' : 'Resolve'}
                   </button>

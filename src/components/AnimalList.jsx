@@ -27,7 +27,7 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
 
   const getHealthStatusColor = (status) => {
     const colors = {
-      healthy: 'bg-emerald-100 text-emerald-700',
+      healthy: 'bg-amber-100 text-amber-800',
       monitoring: 'bg-blue-100 text-blue-700',
       sick: 'bg-amber-100 text-amber-700',
       critical: 'bg-rose-100 text-rose-700'
@@ -114,7 +114,7 @@ export default function AnimalList({ animals, onAnimalDeleted }) {
                   </button>
                   <button
                     onClick={() => setEditingAnimal(animal)}
-                    className="p-2 text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                    className="p-2 text-amber-700 hover:bg-amber-50 rounded-lg transition-colors"
                     title="Edit animal"
                   >
                     <Edit2 className="w-5 h-5" />

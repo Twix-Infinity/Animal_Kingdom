@@ -36,12 +36,12 @@ export default function Auth() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="flex flex-col items-center mb-8">
-            <div className="bg-emerald-100 p-4 rounded-full mb-4">
-              <Stethoscope className="w-12 h-12 text-emerald-600" />
+            <div className="bg-amber-100 p-4 rounded-full mb-4">
+              <Stethoscope className="w-12 h-12 text-amber-700" />
             </div>
             <h1 className="text-3xl font-bold text-slate-800 mb-2">Animal Kingdom</h1>
             <p className="text-slate-600">Farm Health Monitoring System</p>
@@ -52,7 +52,7 @@ export default function Auth() {
               onClick={() => setIsLogin(true)}
               className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
                 isLogin
-                  ? 'bg-emerald-600 text-white'
+                  ? 'bg-amber-700 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -62,7 +62,7 @@ export default function Auth() {
               onClick={() => setIsLogin(false)}
               className={`flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${
                 !isLogin
-                  ? 'bg-emerald-600 text-white'
+                  ? 'bg-amber-700 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -90,7 +90,7 @@ export default function Auth() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
+                  className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none transition-all"
                   placeholder="you@example.com"
                 />
               </div>
@@ -109,7 +109,7 @@ export default function Auth() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={6}
-                  className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
+                  className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none transition-all"
                   placeholder="••••••••"
                 />
               </div>
@@ -118,7 +118,7 @@ export default function Auth() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-medium hover:bg-emerald-700 focus:ring-4 focus:ring-emerald-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="w-full bg-amber-700 text-white py-2.5 rounded-lg font-medium hover:bg-amber-800 focus:ring-4 focus:ring-amber-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               {loading ? 'Please wait...' : isLogin ? 'Sign In' : 'Create Account'}
             </button>

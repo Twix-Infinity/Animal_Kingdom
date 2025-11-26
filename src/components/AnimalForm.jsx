@@ -64,7 +64,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none"
           />
         </div>
         <div>
@@ -74,7 +74,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             value={formData.type}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none"
           >
             <option value="cow">Cow</option>
             <option value="pig">Pig</option>
@@ -90,7 +90,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             onChange={handleChange}
             required
             min="0"
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none"
           />
         </div>
         <div>
@@ -102,7 +102,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             onChange={handleChange}
             min="0"
             step="0.1"
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none"
           />
         </div>
         <div>
@@ -111,7 +111,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             name="health_status"
             value={formData.health_status}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none"
           >
             <option value="healthy">Healthy</option>
             <option value="monitoring">Monitoring</option>
@@ -127,7 +127,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             value={formData.pen_location}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none"
           />
         </div>
         <div>
@@ -137,7 +137,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
             name="last_checked"
             value={formData.last_checked}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent outline-none"
           />
         </div>
       </div>
@@ -152,7 +152,7 @@ export default function AnimalForm({ onSuccess, onCancel, animal = null }) {
         <button
           type="submit"
           disabled={loading}
-          className="flex-1 bg-emerald-600 text-white py-2 rounded-lg font-medium hover:bg-emerald-700 disabled:opacity-50 transition-colors"
+          className="flex-1 bg-amber-700 text-white py-2 rounded-lg font-medium hover:bg-amber-800 disabled:opacity-50 transition-colors"
         >
           {loading ? (isEditing ? 'Updating...' : 'Adding...') : (isEditing ? 'Update Animal' : 'Add Animal')}
         </button>

@@ -121,9 +121,9 @@ export default function VideoAnalysis({ animal, onAnalysisComplete }) {
       )}
 
       {success && (
-        <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-start gap-2">
-          <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-emerald-800">{success}</p>
+        <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg flex items-start gap-2">
+          <CheckCircle2 className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-amber-900">{success}</p>
         </div>
       )}
 

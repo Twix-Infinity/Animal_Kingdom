@@ -15,8 +15,8 @@ export default function Stats({ stats }) {
       icon: Heart,
       label: 'Healthy Animals',
       value: stats.healthyAnimals,
-      color: 'bg-emerald-100 text-emerald-600',
-      bgColor: 'bg-emerald-50'
+      color: 'bg-amber-100 text-amber-700',
+      bgColor: 'bg-amber-50'
     },
     {
       icon: AlertTriangle,
